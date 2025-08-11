@@ -2,11 +2,16 @@ let numeroSecreto = generarNumeroSecreto();
 
 function intentoDeUsuario() {
     let numeroUsuario = parseInt(document.getElementById("numeroUsuario").value);
-    console.log("Número secreto generado:", numeroSecreto);
-    console.log(typeof numeroSecreto);
-    console.log(numeroUsuario);
-    console.log(typeof numeroUsuario);
-    console.log(numeroUsuario === numeroSecreto);
+
+    if (numeroUsuario === numeroSecreto){
+        asignarTextoElemento("p", "¡Felicidades! Adivinaste el número secreto.");
+    } else {
+        if (numeroUsuario < numeroSecreto) {
+            asignarTextoElemento("p", "El número secreto es mayor. Inténtalo de nuevo.");
+        } else {
+            asignarTextoElemento("p", "El número secreto es menor. Inténtalo de nuevo.");
+        }
+    }
 
 
     return;
