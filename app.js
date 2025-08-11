@@ -6,7 +6,9 @@ function intentoDeUsuario() {
 
     if (numeroUsuario === numeroSecreto){
         asignarTextoElemento("p", `¡Felicidades! Adivinaste el número secreto en ${intentos} ${(intentos===1)?"intento":"intentos"}.`);
+        document.getElementById("reiniciar").removeAttribute("disabled");
     } else {
+        limpiarInput();
         if (numeroUsuario < numeroSecreto) {
             asignarTextoElemento("p", "El número secreto es mayor. Inténtalo de nuevo.");
         } else {
@@ -14,13 +16,15 @@ function intentoDeUsuario() {
         }
         intentos++;
     }
-    return;
+}
+
+function limpiarInput() {
+    document.querySelector("#numeroUsuario").value = "";
 }
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML= document.querySelector(elemento);
     elementoHTML.innerHTML = texto;
-    return;
 }
 
 function generarNumeroSecreto() {
