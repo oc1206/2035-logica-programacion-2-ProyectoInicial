@@ -31,5 +31,18 @@ function generarNumeroSecreto() {
     return Math.floor(Math.random()*10)+1;
 }
 
+function condicionesIniciales() {
+    asignarTextoElemento("h1", "Juego de Adivinanza");
+    asignarTextoElemento("p", "Adivina el número entre 1 y 10");
+    numeroSecreto = generarNumeroSecreto();
+    intentos = 1;
+    document.getElementById("reiniciar").setAttribute("disabled", "true");
+}
+
+function reiniciarJuego() {
+    limpiarInput();
+    condicionesIniciales();
+}
+
 asignarTextoElemento("h1", "Juego de Adivinanza");
 asignarTextoElemento("p", "Adivina el número entre 1 y 10");
